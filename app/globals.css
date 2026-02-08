@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+
+  /* Brand Colors */
+  --color-brand-indigo: #6366f1;
+  --color-brand-purple: #8b5cf6;
+  --color-brand-pink: #d946ef;
+
+  /* Theme Colors mapped to HSL */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Custom Utilities */
+  --shadow-premium: 4px 4px 0px 0px rgba(11, 18, 21, 1);
+  --shadow-basecamp: 4px 4px 0px 0px rgba(11, 18, 21, 1);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+:root {
+  --background: 224 71% 4%;
+  --foreground: 210 20% 98%;
+  --card: 224 71% 7%;
+  --card-foreground: 210 20% 98%;
+  --popover: 224 71% 7%;
+  --popover-foreground: 210 20% 98%;
+  --primary: 243 75% 59%;
+  --primary-foreground: 210 20% 98%;
+  --secondary: 215 28% 17%;
+  --secondary-foreground: 210 20% 98%;
+  --muted: 215 28% 17%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 48 100% 50%;
+  --accent-foreground: 224 71% 10%;
+  --destructive: 0 62% 38%;
+  --destructive-foreground: 210 20% 98%;
+  --border: 215 28% 17%;
+  --input: 215 28% 17%;
+  --ring: 243 75% 59%;
+  --radius: 1rem;
+}
+
+.dark {
+  --background: 224 71% 4%;
+  --foreground: 210 20% 98%;
+  --card: 224 71% 7%;
+  --card-foreground: 210 20% 98%;
+  --popover: 224 71% 7%;
+  --popover-foreground: 210 20% 98%;
+  --primary: 243 75% 59%;
+  --primary-foreground: 210 20% 98%;
+  --secondary: 215 28% 17%;
+  --secondary-foreground: 210 20% 98%;
+  --muted: 215 28% 17%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 48 100% 50%;
+  --accent-foreground: 224 71% 10%;
+  --destructive: 0 62% 38%;
+  --destructive-foreground: 210 20% 98%;
+  --border: 215 28% 17%;
+  --input: 215 28% 17%;
+  --ring: 243 75% 59%;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground selection:bg-primary/20;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .premium-card {
+    @apply bg-card border-2 border-white/5 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300;
+  }
+
+  .premium-button {
+    @apply bg-primary text-white font-black px-8 py-4 rounded-2xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-indigo-400 to-purple-400;
+  }
+
+  .bg-dashboard {
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(at 0% 0%, hsla(243, 75%, 59%, 0.15) 0, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(263, 75%, 59%, 0.15) 0, transparent 50%);
+  }
+
+  @keyframes shiny-text {
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  .animate-shiny-text {
+    animation: shiny-text 5s linear infinite;
+  }
+}

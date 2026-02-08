@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { HeroGeometric } from "@/components/ui/shape-landing-hero";
 import { Zap, Trophy, TrendingUp, ArrowRight, Star, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-dashboard selection:bg-primary/20 overflow-x-hidden text-foreground">
+    <div className="min-h-screen bg-dashboard selection:bg-primary/20 overflow-x-hidden text-foreground relative">
 
       {/* Navigation */}
       <nav className="h-24 flex items-center justify-between px-8 max-w-7xl mx-auto border-b-2 border-foreground sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
@@ -31,45 +32,49 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative px-8 pt-24 pb-32 max-w-7xl mx-auto">
-        <div className="text-center space-y-10 relative z-10">
-          <div className="inline-flex items-center gap-2 bg-primary/20 border-2 border-foreground px-6 py-2 rounded-full font-black text-[10px] tracking-widest uppercase">
-            <Sparkles className="w-4 h-4 text-foreground fill-foreground" />
-            Eğlence ve Etkileşimin Yeni Hali
-          </div>
-
-          <h1 className="text-6xl md:text-8xl font-black leading-tight tracking-tighter">
-            İçerik Üreticilerinle <br />
-            <span className="bg-primary px-4 border-2 border-foreground inline-block mt-2 shadow-basecamp">Etkileşime Geç,</span> Kazan!
-          </h1>
-
-          <p className="text-foreground/80 text-xl md:text-2xl max-w-3xl mx-auto font-bold leading-relaxed">
-            Wrestling with engagement? <br />
-            <span className="italic font-medium">It doesn't have to be this hard.</span> Rankio makes it simple, structured, and rewarding for both fans and creators.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-12">
-            <Link href="/auth/register">
-              <button className="basecamp-button text-xl px-12 py-4">
-                Hemen Başla <ArrowRight className="ml-2 w-6 h-6 inline" />
-              </button>
-            </Link>
-
-            <div className="flex items-center gap-4">
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-12 h-12 rounded-full border-2 border-foreground bg-secondary" />
-                ))}
+      {/* Hero Section with Animated Background */}
+      <div className="relative">
+        <HeroGeometric>
+          <div className="relative z-20 px-8 pt-24 pb-32 max-w-7xl mx-auto">
+            <div className="text-center space-y-10">
+              <div className="inline-flex items-center gap-2 bg-primary/20 border-2 border-foreground px-6 py-2 rounded-full font-black text-[10px] tracking-widest uppercase">
+                <Sparkles className="w-4 h-4 text-foreground fill-foreground" />
+                Eğlence ve Etkileşimin Yeni Hali
               </div>
-              <div className="text-left">
-                <p className="text-sm font-black tracking-tight leading-none">+10,000</p>
-                <p className="text-[10px] font-bold text-foreground/60 uppercase tracking-widest">Aktif Kullanıcı</p>
+
+              <h1 className="text-6xl md:text-8xl font-black leading-tight tracking-tighter text-white">
+                İçerik Üreticilerinle <br />
+                <span className="bg-primary px-4 border-2 border-foreground inline-block mt-2 shadow-basecamp">Etkileşime Geç,</span> Kazan!
+              </h1>
+
+              <p className="text-white/80 text-xl md:text-2xl max-w-3xl mx-auto font-bold leading-relaxed">
+                Wrestling with engagement? <br />
+                <span className="italic font-medium">It doesn't have to be this hard.</span> Rankio makes it simple, structured, and rewarding for both fans and creators.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-12">
+                <Link href="/auth/register">
+                  <button className="basecamp-button text-xl px-12 py-4">
+                    Hemen Başla <ArrowRight className="ml-2 w-6 h-6 inline" />
+                  </button>
+                </Link>
+
+                <div className="flex items-center gap-4">
+                  <div className="flex -space-x-3">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="w-12 h-12 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm" />
+                    ))}
+                  </div>
+                  <div className="text-left">
+                    <p className="text-sm font-black tracking-tight leading-none text-white">+10,000</p>
+                    <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest">Aktif Kullanıcı</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </HeroGeometric>
+      </div>
 
       {/* Feature Cards Section */}
       <section id="features" className="px-8 pb-32 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">

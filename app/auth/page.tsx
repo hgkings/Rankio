@@ -4,14 +4,12 @@ import Link from "next/link";
 import { AuthCard } from "@/components/auth/AuthCard";
 import { User, Video, ArrowRight, Zap, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DottedSurface } from "@/components/ui/dotted-surface";
+import { HeroGeometric } from "@/components/ui/shape-landing-hero";
 import { ShinyText } from "@/components/ui/shiny-text";
 
 export default function AuthRolePage() {
     return (
-        <div className="min-h-screen bg-background flex items-center justify-center p-6 relative overflow-hidden">
-            <DottedSurface className="opacity-40" />
-
+        <HeroGeometric>
             <AuthCard className="max-w-2xl">
                 <div className="space-y-12">
                     <div className="text-center space-y-6">
@@ -85,6 +83,6 @@ export default function AuthRolePage() {
                     </div>
                 </div>
             </AuthCard>
-        </div>
+        </HeroGeometric>
     );
 }

@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Trophy, Mail, Lock, ArrowRight, Loader2, Sparkles, User } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { DottedSurface } from "@/components/ui/dotted-surface";
+import { HeroGeometric } from "@/components/ui/shape-landing-hero";
 import { ShinyText } from "@/components/ui/shiny-text";
 
 export default function RegisterPage() {
@@ -53,9 +53,7 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="min-h-screen bg-background flex items-center justify-center p-6 relative overflow-hidden">
-            <DottedSurface className="opacity-30" />
-
+        <HeroGeometric>
             <AuthCard>
                 <div className="space-y-8">
                     <div className="text-center space-y-4">
@@ -150,6 +148,6 @@ export default function RegisterPage() {
                     </div>
                 </div>
             </AuthCard>
-        </div>
+        </HeroGeometric>
     );
 }

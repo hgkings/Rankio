@@ -42,7 +42,7 @@ export default function LoginPage() {
                     .from("profiles")
                     .select("role")
                     .eq("id", user.id)
-                    .single();
+                    .maybeSingle();
 
                 toast.success("Oturum başarıyla açıldı! 🎉");
 

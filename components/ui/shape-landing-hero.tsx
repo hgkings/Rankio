@@ -82,16 +82,29 @@ function HeroGeometric({
     children?: React.ReactNode;
 }) {
     const fadeUp = (i: number) => ({
-  initial: { opacity: 0, y: 30 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1,
-      delay: 0.5 + i * 0.2,
-    },
-  },
-});
+        initial: { opacity: 0, y: 30 },
+        animate: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 1,
+                delay: 0.5 + i * 0.2,
+            },
+        },
+    });
+
+    const fadeUpVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: (i: number) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 1,
+                delay: 0.5 + i * 0.2,
+            },
+        }),
+    };
+
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
@@ -148,14 +161,17 @@ function HeroGeometric({
                     {children ? (
                         children
                     ) : (
-                        <motion.div
-  initial={fadeUp(0).initial}
-  animate={fadeUp(0).animate}
->        
-                                <Circle className="h-2 w-2 fill-rose-500/80" />
-                                <span className="text-sm text-white/60 tracking-wide">
-                                    {badge}
-                                </span>
+                        <>
+                            <motion.div
+                                initial={fadeUp(0).initial}
+                                animate={fadeUp(0).animate}
+                            >
+                                <div className="flex items-center justify-center gap-2">
+                                    <Circle className="h-2 w-2 fill-rose-500/80" />
+                                    <span className="text-sm text-white/60 tracking-wide">
+                                        {badge}
+                                    </span>
+                                </div>
                             </motion.div>
 
                             <motion.div
@@ -171,7 +187,7 @@ function HeroGeometric({
                                     <br />
                                     <span
                                         className={cn(
-                                            "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 "
+                                            "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300"
                                         )}
                                     >
                                         {title2}

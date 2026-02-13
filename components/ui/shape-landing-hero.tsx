@@ -148,12 +148,10 @@ function HeroGeometric({
                     {children ? (
                         children
                     ) : (
-                        <>
-                            <motion.div
+                        <motion.div
   initial={fadeUp(0).initial}
   animate={fadeUp(0).animate}
->
-                            >
+>        
                                 <Circle className="h-2 w-2 fill-rose-500/80" />
                                 <span className="text-sm text-white/60 tracking-wide">
                                     {badge}

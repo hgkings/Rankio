@@ -81,15 +81,17 @@ function HeroGeometric({
     title2?: string;
     children?: React.ReactNode;
 }) {
-    const fadeUpVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: (i: number) => ({
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 1,
-                delay: 0.5 + i * 0.2,
-                ease: "easeOut",
+    const fadeUp = (i: number) => ({
+  initial: { opacity: 0, y: 30 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      delay: 0.5 + i * 0.2,
+    },
+  },
+});
             },
         }),
     };
@@ -152,11 +154,9 @@ function HeroGeometric({
                     ) : (
                         <>
                             <motion.div
-                                custom={0}
-                                variants={fadeUpVariants}
-                                initial="hidden"
-                                animate="visible"
-                                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
+  initial={fadeUp(0).initial}
+  animate={fadeUp(0).animate}
+>
                             >
                                 <Circle className="h-2 w-2 fill-rose-500/80" />
                                 <span className="text-sm text-white/60 tracking-wide">
